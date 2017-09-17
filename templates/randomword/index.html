@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type='text/stylesheet' src="{% static 'randomword/css/style.css'%}">
+</head>
+
+<body>
+	<div id="wrapper">
+		<p>This is the random word generator</p>
+		This is your {{ attempt }} attempt!<br>
+		{{randomword}}
+		<a href="/">test link</a>
+		<form method="POST" action="/randomword">
+			<input type="hidden" name="attempt" value="{{attempt}}">
+			{% csrf_token %}
+			<input type="submit" value="generate">
+		</form>
+	</div>
+</body>
+
+</html>
